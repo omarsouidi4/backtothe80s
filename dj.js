@@ -1,14 +1,15 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getFirestore, collection, query, orderBy, onSnapshot, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+import { getFirestore, collection, query, orderBy, onSnapshot, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
+// The new Firebase configuration for "backtothe80s"
 const firebaseConfig = {
-    apiKey: "AIzaSyC2uaxWDXMh2NqBuOfDtal-tGEuqEp_DYY",
-    authDomain: "karaoke-1f4e6.firebaseapp.com",
-    projectId: "karaoke-1f4e6",
-    storageBucket: "karaoke-1f4e6.appspot.com",
-    messagingSenderId: "732700787552",
-    appId: "1:732700787552:web:d2f21e6334de13cb959405",
-    measurementId: "G-564LSTD2Q4"
+  apiKey: "AIzaSyDx-wS_FBpDx1LQBFzmsP7tgt-btukmcQg",
+  authDomain: "backtothe80s-50666.firebaseapp.com",
+  projectId: "backtothe80s-50666",
+  storageBucket: "backtothe80s-50666.appspot.com",
+  messagingSenderId: "772603629636",
+  appId: "1:772603629636:web:f79ae1a894d59a3916ac11",
+  measurementId: "G-QBK9W1BG48"
 };
 
 const app = initializeApp(firebaseConfig);
