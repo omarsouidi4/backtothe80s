@@ -13,33 +13,30 @@ const firebaseConfig = {
   measurementId: "G-QBK9W1BG48"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('song-form');
-  form.addEventListener('submit', async event => {
-    event.preventDefault();
-    const artist = document.getElementById('artist').value;
-    const song = document.getElementById('song').value;
-    const table = document.getElementById('table').value;
+    const form = document.getElementById('song-form');
+    form.addEventListener('submit', async event => {
+        event.preventDefault();
+        const artist = document.getElementById('artist').value;
+        const song = document.getElementById('song').value;
+        const table = document.getElementById('table').value;
 
-    try {
-      // Note: You may want to use a different collection name
-      // if this is for a second website/project
-      const docRef = await addDoc(collection(db, "backtothe80sSubmissions"), {
-        artist: artist,
-        song: song,
-        table: table,
-        timestamp: new Date()
+        try {
+            const docRef = await addDoc(collection(db, "submissions"), {
+                artist: artist,
+                song: song,
+                table: table,
+                timestamp: new Date()
+            });
+            console.log("Document written with ID: ", docRef.id);
+            alert('Chanson soumise avec succès !');
+            form.reset();
+        } catch (error) {
+            console.error("Error adding document: ", error);
+            alert('Erreur lors de la soumission de la chanson.');
+        }
     });
-      console.log("Document written with ID: ", docRef.id);
-      alert('Chanson soumise avec succès !');
-      form.reset();
-    } catch (error) {
-      console.error("Error adding document: ", error);
-      alert('Erreur lors de la soumission de la chanson.');
-    }
-  });
 });
