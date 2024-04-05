@@ -17,12 +17,20 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM entièrement chargé et analysé");
     const form = document.getElementById('song-form');
+    if (!form) {
+        console.log("Le formulaire n'a pas été trouvé");
+        return;
+    }
     form.addEventListener('submit', async event => {
+        console.log("Tentative de soumission du formulaire");
         event.preventDefault();
         const artist = document.getElementById('artist').value;
         const song = document.getElementById('song').value;
         const table = document.getElementById('table').value;
+
+        console.log({artist, song, table}); // Pour vérifier les valeurs récupérées
 
         try {
             const docRef = await addDoc(collection(db, "submissions"), {
